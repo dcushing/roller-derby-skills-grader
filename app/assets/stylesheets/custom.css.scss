@@ -1,0 +1,145 @@
+@import url(http://fonts.googleapis.com/css?family=Rock+Salt);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+/* colors */
+$red-light:#df0000;
+$red-med:#c00000;
+$red-dark:#7f0000;
+$gray-light:#eaeaea;
+$gray-med-light:#bdbdbd;
+$gray-med-dark:#595959;
+$gray-dark:#141414;
+
+/* button */
+$btn-default-color: $gray-light;
+$btn-default-bg:#db0000;
+$btn-default-border:#c00000;
+$btn-primary-color:$btn-default-color;
+$btn-primary-bg:$btn-default-bg;
+$btn-primary-border:$btn-default-border;
+
+/* misc */
+$jumbotron-color:$red-med;
+$jumbotron-bg:$gray-med-light;
+$link-color:$red-med;
+$link-hover-color:$gray-med-dark;
+$link-hover-decoration:none;
+    
+@import 'bootstrap';
+
+
+/* universal */
+
+body {
+    padding-top:60px;
+    padding-bottom:60px;
+    background-color:$gray-light;
+}
+
+section {
+    overflow: auto;
+}
+
+textarea {
+    resize:vertical;
+}
+
+.center {
+    text-align:center;
+    h1 {
+        margin-bottom:10px;
+    }
+}
+
+.content {
+    padding:20px 100px 20px 100px;
+    background-color:$gray-med-light;
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+    line-height:1;
+}
+
+h1 {
+    font-size:3em;
+    letter-spacing:-2px;
+    margin-bottom:30px;
+    text-align:center;
+    font-family: 'Rock Salt', cursive;
+    color:$red-med;
+}
+
+h2 {
+    font-size:1.2em;
+    letter-spacing:-1px;
+    margin-bottom:30px;
+    text-align:center;
+    font-weight:normal;
+    color:$gray-dark;
+    font-family: "Open Sans", sans-serif;
+}
+
+p {
+    font-size:1.1em;
+    line-height:1.7em;
+    font-family:"Open Sans", sans-serif;
+    color:$gray-dark;
+}
+
+
+/* header */
+
+header {
+    color:$gray-med-light;
+    padding-bottom:5px;
+    padding-top:5px;
+}
+
+#logo {
+    float:left;
+    margin-right:10px;
+    font-size:1.7em;
+    color:$gray-med-light;
+    text-transform:uppercase;
+    letter-spacing:-1px;
+    padding-top:9px;
+    font-weight:bold;
+    &:hover {
+        color:$gray-med-dark;
+        text-decoration:none;
+    }
+}
+
+
+/* footer */
+
+footer {
+    margin-top:45px;
+    padding-top:5px;
+    color:$gray-med-dark;
+    a {
+        color:$gray-med-dark;
+        &:hover {
+            color:$red-dark;
+        }
+    }
+    small {
+        float:left;
+    }
+    ul {
+        float:right;
+        list-style:none;
+        li {
+            float:left;
+            margin-right:15px;
+        }
+    }
+}
+
+/* misc */ 
+
+.my-btn {
+    font-family: 'Rock Salt', cursive;
+}
