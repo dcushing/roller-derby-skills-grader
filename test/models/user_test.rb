@@ -19,8 +19,18 @@ class UserTest < ActiveSupport::TestCase
         assert_not @user.valid?
     end
     
+    test "derby name does not have to be present" do
+        @user.derby_name = ""
+        assert @user.valid?
+    end
+    
     test "name should not be too long" do
         @user.name = "a" * 51
+        assert_not @user.valid?
+    end
+    
+    test "derby name should not be too long" do
+        @user.derby_name = "a" * 31
         assert_not @user.valid?
     end
     
