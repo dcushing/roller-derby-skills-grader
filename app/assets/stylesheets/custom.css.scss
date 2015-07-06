@@ -21,7 +21,7 @@ $btn-primary-border:$btn-default-border;
 /* misc */
 $jumbotron-color:$red-med;
 $jumbotron-bg:$gray-med-light;
-$link-color:$red-med;
+$link-color:$red-dark;
 $link-hover-color:$gray-med-dark;
 $link-hover-decoration:none;
     
@@ -177,6 +177,17 @@ input {
 #session_remember_me {
     width:auto;
     margin-left:0;
+}
+
+/* Users index */
+.users {
+    list-style:none;
+    margin:0;
+    li {
+        overflow:auto;
+        padding:10px 0;
+        border-bottom: 1px solid $gray-med-light;
+    }
 }
 
 /* misc */ 

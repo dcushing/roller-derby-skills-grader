@@ -1,4 +1,20 @@
 dany:
- name: Dany Stormborn
- email: dany@rdsg.com
+ name: Danielle Cushing
+ derby_name: Dany Stormborn 
+ email: danystormborn@rdsg.com
  password_digest: <%= User.digest('password') %>
+ admin: true
+
+ruthless:
+ name: Bliss Cavendar
+ derby_name: Babe Ruthless
+ email: baberutheless@rdsg.com
+ password_digest: <%= User.digest('password') %>
+ 
+<% 30.times do |n| %>
+user_<%= n %>:
+ name: <%= "User #{n}" %>
+ derby_name: <%= "Derby user #{n}" %>
+ email: <%= "user-#{n}@rdsg.com" %>
+ password_digest: <%= User.digest('password') %>
+<% end %>
