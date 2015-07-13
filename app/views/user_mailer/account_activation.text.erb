@@ -1,0 +1,5 @@
+Roller Derby Skills Grader
+
+Hi, <%= @user.name %>! Welcome to the Roller Derby Skills Grader. Visit the link below to gear up and activate your email:
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
