@@ -1,4 +1,4 @@
-# Preview all emails at http://localhost:3000/rails/mailers/user_mailer
+# Preview all emails at monday-enigma.codio.io:3000/rails/mailers/user_mailer
 class UserMailerPreview < ActionMailer::Preview
     
     # Preview this email at monday-enigma.codio.io:3000/rails/mailers/user_mailer/account_activation
@@ -10,6 +10,8 @@ class UserMailerPreview < ActionMailer::Preview
     
     # Preview this email at monday-enigma.codio.io:3000/rails/mailers/user_mailer/password_reset
     def password_reset
-        UserMailer.password_reset
+        user = User.first
+        user.reset_token = User.new_token
+        UserMailer.password_reset(user)
     end
 end
