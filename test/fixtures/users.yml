@@ -14,6 +14,14 @@ ruthless:
  password_digest: <%= User.digest('password') %>
  activated: true
  activated_at: <%= Time.zone.now %>
+
+unactivated:
+ name: Unactivated User
+ derby_name: Derby Unactivated
+ email: inactive@rdsg.com
+ password_digest: <%= User.digest('password') %>
+ activated: false
+ activated_at: nil
  
 <% 30.times do |n| %>
 user_<%= n %>:

@@ -4,6 +4,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     
     def setup
         @user = users(:dany)
+        @inactive = users(:unactivated)
     end
     
     test "log in with invalid credentials" do
@@ -44,4 +45,10 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
         log_in_as(@user, remember_me: '0')
         assert_nil cookies['remember_token']
     end
+    
+    test "try to log in an unactivated user" do
+        log_in_as(@inactive)
+        assert_redirected_to root_path
+    end
+        
 end
