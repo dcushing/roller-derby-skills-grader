@@ -1,0 +1,19 @@
+skating:
+ name: Skating
+ level: 5
+ comments: I am a level 5/5 with my skating skill. Hooray!
+ user: dany
+
+juking:
+ name: Juking
+ level: 2
+ comments: I am still working on my juking ability
+ user: ruthless
+
+<% 20.times do |n| %>
+skill_<%= n %>:
+ name: <%= Faker::Lorem.word %>
+ level: 3
+ comments: <%= Faker::Lorem.sentence(5) %>
+ user: dany
+<% end %>

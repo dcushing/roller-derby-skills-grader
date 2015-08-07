@@ -1,0 +1,10 @@
+<table id="skill-<%= skill.id %>" class="table">
+    <tr>
+        <td class="skill-name col-md-2"><%= skill.name %></td>
+        <td class="skill-level col-md-2">Level: <%= skill.level %></td>
+        <td class="skill-comments col-md-5"><%= skill.comments %></td>
+        <% if current_user?(skill.user) %>
+        <td><%= link_to "delete", skill, method: :delete, data: { confirm: "Are you sure about this?" } %></td>
+        <% end %>
+    </tr>
+</table>

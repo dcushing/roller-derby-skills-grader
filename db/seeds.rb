@@ -20,3 +20,10 @@ User.create!(name: "Example User",
         activated: true,
         activated_at: Time.zone.now)
 end
+
+users = User.order(:created_at).take(6)
+50.times do
+    name = Faker::Lorem.word
+    comments = Faker::Lorem.sentence(5)
+    users.each { |user| user.skills.create!(name: name, level: 3, comments: comments) }
+end

@@ -1,0 +1,10 @@
+<aside class="col-md-3">
+    <section class="user_info">
+        <h1><%= current_user.name %></h1>
+        <h1><%= current_user.derby_name %></h1>
+        <h2>League Affiliation: [to be developed]</h2>
+        <h2>[User type: will display skater, ref, and/or NSO]</h2>
+        <span><%= link_to "View my profile", current_user %></span>
+        <span>(<%= pluralize(current_user.skills.count, "skill") %>)</span>
+    </section>
+</aside>

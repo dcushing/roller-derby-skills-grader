@@ -1,0 +1,15 @@
+<%= form_for(@skill) do |f| %>
+<%= render 'shared/error_messages', object: @skill %>
+
+<div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+    
+    <%= f.label :level %>
+    <%= f.number_field :level, in: 1..5, class: 'form-control' %>
+    
+    <%= f.label :comments %>
+    <%= f.text_area :comments, class: 'form-control' %>
+</div>
+<%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>
