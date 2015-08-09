@@ -45,4 +45,9 @@ class SkillTest < ActiveSupport::TestCase
         assert @skill.valid?
     end
     
+    test "comments are not required" do
+        @skill.comments = ""
+        assert @skill.valid?
+    end
+    
 end

@@ -6,45 +6,82 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
         @user = users(:dany)
     end
     
-    test "password resets" do
+    test "invalid email on password reset" do
         get new_password_reset_path
         assert_template 'password_resets/new'
-        # Invalid email
         post password_resets_path, password_reset: { email: "" }
         assert_not flash.empty?
         assert_template 'password_resets/new'
-        # Valid email
+    end
+    
+    test "valid email on password reset" do
+        get new_password_reset_path
+        assert_template 'password_resets/new'
         post password_resets_path, password_reset: { email: @user.email }
         assert_not_equal @user.reset_digest, @user.reload.reset_digest
         assert_equal 1, ActionMailer::Base.deliveries.size
         assert_not flash.empty?
         assert_redirected_to root_url
-        # Password reset form
+    end
+    
+    test "wrong email on password reset form" do
+        get new_password_reset_path
+        post password_resets_path, password_reset: { email: @user.email }
         user = assigns(:user)
-        # Wrong email
-        get edit_password_reset_path(user.reset_token, email: "")
+        get edit_password_reset_path(user.reset_token, email: "") #error here - undefined method 'reset_token' for nil:NilClass
+        #That error I was getting is fixed now by adding the second line of this test. Why do I need it?
         assert_redirected_to root_url
-        # Inactive user
-        user.toggle!(:activated)
+    end
+    
+    test "inactive user tries password reset" do
+        get new_password_reset_path
+        post password_resets_path, password_reset: { email: @user.email }
+        user = assigns(:user)
+        user.toggle!(:activated) #error here - undefined method 'toggle!' for nil:NilClass
+        #Same as above--the error is now fixed by adding that post password_resets_path line. Why?
         get edit_password_reset_path(user.reset_token, email: user.email)
         assert_redirected_to root_url
-        user.toggle!(:activated)
-        # Right email, wrong token
-        get edit_password_reset_path(user.reset_token, email: user.email)
+        #user.toggle!(:activated)
+    end
+    
+    test "password reset with right email but wrong token" do
+        get new_password_reset_path
+        post password_resets_path, password_reset: { email: @user.email }
+        user = assigns(:user)
+        get edit_password_reset_path('wrong token', email: user.email)
+        assert_redirected_to root_url
+    end
+    
+    test "password reset with right email and right token" do
+        get new_password_reset_path
+        post password_resets_path, password_reset: { email: @user.email }
+        user = assigns(:user)
+        get edit_password_reset_path(user.reset_token, email: user.email) #error here - undefined local variable or method 'user'
         assert_template 'password_resets/edit'
         assert_select "input[name=email][type=hidden][value=?]", user.email
-        # Right email, right token
-        get edit_password_reset_path(user.reset_token, email: user.email)
-        assert_template 'password_resets/edit'
-        assert_select "input[name=email][type=hidden][value=?]", user.email
-        # Invalid password and confirmation
+    end
+    
+    test "invalid password and password confirmation" do
+        get new_password_reset_path
+        post password_resets_path, password_reset: { email: @user.email}
+        user = assigns(:user)
         patch password_reset_path(user.reset_token), email: user.email, user: { password: "foobaz", password_confirmation: "barbaz" }
         assert_select 'div#error_explanation'
-        # Empty password
+    end
+    
+    test "empty password" do
+        get new_password_reset_path
+        post password_resets_path, password_reset: { email: @user.email}
+        user = assigns(:user)
         patch password_reset_path(user.reset_token), email: user.email, user: { password: "", password_confirmation: "" }
         assert_not flash.empty?
         assert_template 'password_resets/edit'
-        # Valid password and confirmation
+    end
+    
+    test "valid password and valid password confirmation" do
+        get new_password_reset_path
+        post password_resets_path, password_reset: { email: @user.email }
+        user = assigns(:user)
         patch password_reset_path(user.reset_token), email: user.email, user: { password: "foobaz", password_confirmation: "foobaz" }
         assert is_logged_in?
         assert_not flash.empty?

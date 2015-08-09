@@ -25,8 +25,8 @@ class SkillsInterfaceTest < ActionDispatch::IntegrationTest
         end
         assert_redirected_to user_path(@user)
         follow_redirect!
-        #assert_match name, response.body
-        #assert_match level, response.body
+        assert_match name, response.body
+        assert_match level.to_s, response.body
     end
     
     test "delete a skill" do

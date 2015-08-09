@@ -5,7 +5,7 @@ class UserTest < ActiveSupport::TestCase
         @user = users(:dany)
     end
     
-    test "should be valid" do
+    test "user should be valid" do
         assert @user.valid?
     end
     
@@ -76,7 +76,7 @@ class UserTest < ActiveSupport::TestCase
         assert_not @user.authenticated?(:remember, '')
     end
     
-    test "assorted skills should be destroyed" do
+    test "associated skills should be destroyed" do
         @user.save
         @user.skills.create!(name: "backwards skating", level: 4, comments: "these are my comments")
         assert_difference 'Skill.count', -22 do
