@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     private
     
     def user_params
-        params.require(:user).permit(:name, :derby_name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:name, :derby_name, :email, :password, :password_confirmation, :league, :blocker, :jammer, :freshmeat, :ref, :nso)
     end
     
     # Before filters

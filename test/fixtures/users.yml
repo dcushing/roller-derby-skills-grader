@@ -6,6 +6,11 @@ dany:
  admin: true
  activated: true
  activated_at: <%= Time.zone.now %>
+ blocker: true
+ jammer: true
+ freshmeat: true
+ ref: true
+ nso: true
 
 ruthless:
  name: Bliss Cavendar
@@ -14,6 +19,11 @@ ruthless:
  password_digest: <%= User.digest('password') %>
  activated: true
  activated_at: <%= Time.zone.now %>
+ blocker: false
+ jammer: false
+ freshmeat: false
+ ref: false
+ nso: false
 
 unactivated:
  name: Unactivated User
@@ -39,4 +49,9 @@ user_<%= n %>:
  password_digest: <%= User.digest('password') %>
  activated: true
  activated_at: <%= Time.zone.now %>
+ blocker: true
+ jammer: false
+ freshmeat: true
+ ref: false
+ nso: true
 <% end %>

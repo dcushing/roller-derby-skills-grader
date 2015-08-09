@@ -14,3 +14,18 @@
 
 <%= f.label :password_confirmation %>
 <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+<%= f.label :league %>
+<%= f.text_field :league, class: 'form-control' %>
+
+Are you a:
+<%= f.label :blocker %>
+<%= f.check_box :blocker %>
+<%= f.label :jammer %>
+<%= f.check_box :jammer %>
+<%= f.label :freshmeat %>
+<%= f.check_box :freshmeat %>
+<%= f.label :ref %>
+<%= f.check_box :ref %>
+<%= f.label :nso %>
+<%= f.check_box :nso %>

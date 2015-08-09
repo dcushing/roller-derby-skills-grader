@@ -29,6 +29,41 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
         end
     end
     
+    test "valid signup information with league" do
+        get signup_path
+        assert_difference 'User.count', 1 do
+            post_via_redirect users_path, user: { name: "Example User", derby_name: "", email: "user@rdsg.com", password: "password", password_confirmation: "password", league: "Example League" }
+        end
+    end
+    
+    test "valid signup information without league" do
+        get signup_path
+        assert_difference 'User.count', 1 do 
+            post_via_redirect users_path, user: { name: "Example User", derby_name: "", email: "user@rdsg.com", password: "password", password_confirmation: "password", league: "" }
+        end
+    end
+    
+    test "valid signup information with some skater types" do
+        get signup_path
+        assert_difference 'User.count', 1 do
+            post_via_redirect users_path, user: { name: "Example User", derby_name: "", email: "user@rdsg.com", password: "password", password_confirmation: "password", league: "", blocker: true, jammer: false, freshmeat: true, ref: false, nso: true }
+        end
+    end
+    
+    test "valid signup information with all skater types" do
+        get signup_path
+        assert_difference 'User.count', 1 do
+            post_via_redirect users_path, user: { name: "Example User", derby_name: "", email: "user@rdsg.com", password: "password", password_confirmation: "password", blocker: true, jammer: true, freshmeat: true, ref: true, nso: true }
+        end
+    end
+    
+    test "valid signup information with no skater types" do
+        get signup_path
+        assert_difference 'User.count', 1 do
+            post_via_redirect users_path, user: { name: "Example User", derby_name: "", email: "user@rdsg.com", password: "password", password_confirmation: "password", blocker: false, jammer: false, freshmeat: false, ref: false, nso: false }
+        end
+    end
+    
     test "valid signup information with account activation" do
         get signup_path
         assert_difference 'User.count', 1 do

@@ -72,6 +72,16 @@ class UserTest < ActiveSupport::TestCase
         assert_not @user.valid?
     end
     
+    test "league should not be greater than fifty characters" do
+        @user.league = "a" * 51
+        assert_not @user.valid?
+    end
+    
+    test "league should be optional" do
+        @user.league = ""
+        assert @user.valid?
+    end
+    
     test "authenticated? should return false for a user with nil digest" do
         assert_not @user.authenticated?(:remember, '')
     end

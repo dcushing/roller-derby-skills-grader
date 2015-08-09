@@ -5,11 +5,17 @@ User.create!(name: "Example User",
     password_confirmation: "foobar",
     admin: true,
     activated: true,
-    activated_at: Time.zone.now)
+    activated_at: Time.zone.now,
+    league: "Example League",
+    blocker: true,
+    jammer: true,
+    freshmeat: true,
+    ref: true,
+    nso: true)
 
 99.times do |n|
     name = Faker::Name.name
-    derby_name = "Derby #{name}"
+    derby_name = "D #{name}"
     email = "example-#{n+1}@rdsg.com"
     password = "password"
     User.create!(name: name,
@@ -18,7 +24,13 @@ User.create!(name: "Example User",
         password: password,
         password_confirmation: password,
         activated: true,
-        activated_at: Time.zone.now)
+        activated_at: Time.zone.now,
+        league: Faker::Lorem.word,
+        blocker: true,
+        jammer: false,
+        freshmeat: false,
+        ref: true,
+        nso: false)
 end
 
 users = User.order(:created_at).take(6)
