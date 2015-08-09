@@ -1,5 +1,5 @@
-User.create!(name: "Example User",
-    derby_name: "User Example",
+User.create!(display_name: "Example User",
+    alternate_name: "User Example",
     email: "example@rdsg.com",
     password: "foobar",
     password_confirmation: "foobar",
@@ -14,12 +14,12 @@ User.create!(name: "Example User",
     nso: true)
 
 99.times do |n|
-    name = Faker::Name.name
-    derby_name = "D #{name}"
+    display_name = Faker::Name.name
+    alternate_name = "D #{display_name}"
     email = "example-#{n+1}@rdsg.com"
     password = "password"
-    User.create!(name: name,
-        derby_name: derby_name,
+    User.create!(display_name: display_name,
+        alternate_name: alternate_name,
         email: email,
         password: password,
         password_confirmation: password,

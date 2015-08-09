@@ -9,65 +9,65 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     test "invalid signup information" do
         get signup_path
         assert_no_difference 'User.count' do
-            post users_path, user: { name: "", email: "user@invalid",
+            post users_path, user: { display_name: "", email: "user@invalid",
                 password: "foo", password_confirmation: "bar" }
         end
         assert_template 'users/new'
     end
     
-    test "valid signup information with derby name" do
+    test "valid signup information with alternate_name" do
         get signup_path
         assert_difference 'User.count', 1 do
-            post_via_redirect users_path, user: { name: "Example User", derby_name: "Example Derby Name", email: "user@rdsg.com", password: "password", password_confirmation: "password" }
+            post_via_redirect users_path, user: { display_name: "Example User", alternate_name: "Example Derby Name", email: "user@rdsg.com", password: "password", password_confirmation: "password" }
         end
     end
     
-    test "valid signup information without derby name" do
+    test "valid signup information without alternate_name" do
         get signup_path
         assert_difference 'User.count', 1 do
-            post_via_redirect users_path, user: { name: "Example User", derby_name: "", email: "user@rdsg.com", password: "password", password_confirmation: "password" }
+            post_via_redirect users_path, user: { display_name: "Example User", alternate_name: "", email: "user@rdsg.com", password: "password", password_confirmation: "password" }
         end
     end
     
     test "valid signup information with league" do
         get signup_path
         assert_difference 'User.count', 1 do
-            post_via_redirect users_path, user: { name: "Example User", derby_name: "", email: "user@rdsg.com", password: "password", password_confirmation: "password", league: "Example League" }
+            post_via_redirect users_path, user: { display_name: "Example User", alternate_name: "", email: "user@rdsg.com", password: "password", password_confirmation: "password", league: "Example League" }
         end
     end
     
     test "valid signup information without league" do
         get signup_path
         assert_difference 'User.count', 1 do 
-            post_via_redirect users_path, user: { name: "Example User", derby_name: "", email: "user@rdsg.com", password: "password", password_confirmation: "password", league: "" }
+            post_via_redirect users_path, user: { display_name: "Example User", alternate_name: "", email: "user@rdsg.com", password: "password", password_confirmation: "password", league: "" }
         end
     end
     
     test "valid signup information with some skater types" do
         get signup_path
         assert_difference 'User.count', 1 do
-            post_via_redirect users_path, user: { name: "Example User", derby_name: "", email: "user@rdsg.com", password: "password", password_confirmation: "password", league: "", blocker: true, jammer: false, freshmeat: true, ref: false, nso: true }
+            post_via_redirect users_path, user: { display_name: "Example User", alternate_name: "", email: "user@rdsg.com", password: "password", password_confirmation: "password", league: "", blocker: true, jammer: false, freshmeat: true, ref: false, nso: true }
         end
     end
     
     test "valid signup information with all skater types" do
         get signup_path
         assert_difference 'User.count', 1 do
-            post_via_redirect users_path, user: { name: "Example User", derby_name: "", email: "user@rdsg.com", password: "password", password_confirmation: "password", blocker: true, jammer: true, freshmeat: true, ref: true, nso: true }
+            post_via_redirect users_path, user: { display_name: "Example User", alternate_name: "", email: "user@rdsg.com", password: "password", password_confirmation: "password", blocker: true, jammer: true, freshmeat: true, ref: true, nso: true }
         end
     end
     
     test "valid signup information with no skater types" do
         get signup_path
         assert_difference 'User.count', 1 do
-            post_via_redirect users_path, user: { name: "Example User", derby_name: "", email: "user@rdsg.com", password: "password", password_confirmation: "password", blocker: false, jammer: false, freshmeat: false, ref: false, nso: false }
+            post_via_redirect users_path, user: { display_name: "Example User", alternate_name: "", email: "user@rdsg.com", password: "password", password_confirmation: "password", blocker: false, jammer: false, freshmeat: false, ref: false, nso: false }
         end
     end
     
     test "valid signup information with account activation" do
         get signup_path
         assert_difference 'User.count', 1 do
-            post users_path, user: { name: "Example User", 
+            post users_path, user: { display_name: "Example User", 
                 email: "user@rdsg.com", 
                 password: "password", 
                 password_confirmation: "password" }

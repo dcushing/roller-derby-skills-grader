@@ -30,7 +30,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     test "logged in user profile view" do
         log_in_as @user
         get root_path
-        assert_select 'h1', text: @user.name
-        assert_select 'h1', text: @user.derby_name
+        assert_select 'h1', text: @user.display_name
+        assert_select 'h1', text: @user.alternate_name
     end
 end

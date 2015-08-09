@@ -13,6 +13,6 @@ class ApplicationHelperTest < ActionView::TestCase
     end
     
     test "title helper displays user name in title when user" do
-        assert_equal full_title(@user.name), "#{@user.name} | Roller Derby Skills Grader"
+        assert_equal full_title(@user.display_name), "#{@user.display_name} | Roller Derby Skills Grader"
     end
 end

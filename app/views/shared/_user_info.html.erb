@@ -1,7 +1,7 @@
 <aside class="col-md-3">
     <section class="user_info">
-        <h1><%= current_user.name %></h1>
-        <h1><%= current_user.derby_name %></h1>
+        <h1><%= current_user.display_name %></h1>
+        <h1><%= current_user.alternate_name %></h1>
         <h2><%= current_user.league %></h2>
         <% if current_user.blocker %>
         <p class="user-type">Blocker</p>

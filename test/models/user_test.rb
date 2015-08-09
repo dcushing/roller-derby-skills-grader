@@ -9,28 +9,28 @@ class UserTest < ActiveSupport::TestCase
         assert @user.valid?
     end
     
-    test "name should be present" do
-        @user.name = " "
+    test "display_name should be present" do
+        @user.display_name = ""
         assert_not @user.valid?
     end
     
     test "email should be present" do
-        @user.email = " "
+        @user.email = ""
         assert_not @user.valid?
     end
     
-    test "derby name does not have to be present" do
-        @user.derby_name = ""
+    test "alternate_name does not have to be present" do
+        @user.alternate_name = ""
         assert @user.valid?
     end
     
-    test "name should not be too long" do
-        @user.name = "a" * 51
+    test "display_name should not be too long" do
+        @user.display_name = "a" * 51
         assert_not @user.valid?
     end
     
-    test "derby name should not be too long" do
-        @user.derby_name = "a" * 31
+    test "alternate_name should not be too long" do
+        @user.alternate_name = "a" * 31
         assert_not @user.valid?
     end
     

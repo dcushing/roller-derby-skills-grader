@@ -1,6 +1,6 @@
 dany:
- name: Danielle Cushing
- derby_name: Dany Stormborn 
+ display_name: Danielle Cushing
+ alternate_name: Dany Stormborn 
  email: danystormborn@rdsg.com
  password_digest: <%= User.digest('password') %>
  admin: true
@@ -13,8 +13,8 @@ dany:
  nso: true
 
 ruthless:
- name: Bliss Cavendar
- derby_name: Babe Ruthless
+ display_name: Bliss Cavendar
+ alternate_name: Babe Ruthless
  email: baberutheless@rdsg.com
  password_digest: <%= User.digest('password') %>
  activated: true
@@ -26,16 +26,16 @@ ruthless:
  nso: false
 
 unactivated:
- name: Unactivated User
- derby_name: Derby Unactivated
+ display_name: Unactivated User
+ alternate_name: Derby Unactivated
  email: inactive@rdsg.com
  password_digest: <%= User.digest('password') %>
  activated: false
  activated_at: nil
 
 unskilled:
- name: No Skills User
- derby_name: Skillless
+ display_name: No Skills User
+ alternate_name: Skillless
  email: unskilled@rdsg.com
  password_digest: <%= User.digest('password') %>
  activated: true
@@ -43,8 +43,8 @@ unskilled:
  
 <% 30.times do |n| %>
 user_<%= n %>:
- name: <%= "User #{n}" %>
- derby_name: <%= "Derby user #{n}" %>
+ display_name: <%= "User #{n}" %>
+ alternate_name: <%= "Derby user #{n}" %>
  email: <%= "user-#{n}@rdsg.com" %>
  password_digest: <%= User.digest('password') %>
  activated: true

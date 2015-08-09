@@ -10,8 +10,8 @@ class UsersEditTest < ActionDispatch::IntegrationTest
         log_in_as(@user)
         get edit_user_path(@user)
         assert_template 'users/edit'
-        patch user_path(@user), user: { name: "",
-            derby_name: "",
+        patch user_path(@user), user: { display_name: "",
+            alternate_name: "",
             email: "foo@invalid",
             password: "foo",
             password_confirmation: "bar" }
@@ -22,39 +22,39 @@ class UsersEditTest < ActionDispatch::IntegrationTest
         get edit_user_path(@user)
         log_in_as(@user)
         assert_redirected_to edit_user_path(@user)
-        name = "Foo Bar"
+        display_name = "Foo Bar"
         derby_name = "Bar Foo" 
         email = "foo@bar.com"
-        patch user_path(@user), user: { name: name,
-            derby_name: derby_name,
+        patch user_path(@user), user: { display_name: display_name,
+            alternate_name: alternate_name,
             email: email,
             password: "",
             password_confirmation: "" }
         assert_not flash.empty?
         assert_redirected_to @user
         @user.reload
-        assert_equal name, @user.name
-        assert_equal derby_name, @user.derby_name
+        assert_equal display_name, @user.display_name
+        assert_equal alternate_name, @user.alternate_name
         assert_equal email, @user.email
         assert_equal session[:forwarding_url], nil
     end
     
-    test "update name" do
+    test "update display_name" do
         log_in_as @user
         get edit_user_path(@user)
-        name = "New Name"
-        patch user_path(@user), user: { name: name }
+        display_name = "New Name"
+        patch user_path(@user), user: { display_name: display_name }
         @user.reload
-        assert_equal name, @user.name
+        assert_equal display_name, @user.display_name
     end
     
-    test "update derby name" do
+    test "update alternate_name" do
         log_in_as @user
         get edit_user_path(@user)
-        derby_name = "New Derby Name"
-        patch user_path(@user), user: { derby_name: derby_name }
+        alternate_name = "New Derby Name"
+        patch user_path(@user), user: { alternate_name: alternate_name }
         @user.reload
-        assert_equal derby_name, @user.derby_name
+        assert_equal alternate_name, @user.alternate_name
     end
     
     test "update email" do
