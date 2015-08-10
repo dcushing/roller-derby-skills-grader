@@ -1,6 +1,6 @@
 dany:
- display_name: Danielle Cushing
- alternate_name: Dany Stormborn 
+ display_name: Dany Stormborn
+ alternate_name: Danielle Cushing
  email: danystormborn@rdsg.com
  password_digest: <%= User.digest('password') %>
  admin: true
@@ -13,8 +13,8 @@ dany:
  nso: true
 
 ruthless:
- display_name: Bliss Cavendar
- alternate_name: Babe Ruthless
+ display_name: Babe Ruthless
+ alternate_name: Bliss Cavendar
  email: baberutheless@rdsg.com
  password_digest: <%= User.digest('password') %>
  activated: true

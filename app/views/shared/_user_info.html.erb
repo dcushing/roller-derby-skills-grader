@@ -1,22 +1,30 @@
 <aside class="col-md-3">
     <section class="user_info">
         <h1><%= current_user.display_name %></h1>
-        <h1><%= current_user.alternate_name %></h1>
+        
+        <% if current_user.alternate_name %>
+            <h2><%= current_user.alternate_name %></h2>
+        <% end %>
+        
         <h2><%= current_user.league %></h2>
         <% if current_user.blocker %>
-        <p class="user-type">Blocker</p>
+            <p class="user-type">Blocker</p>
         <% end %>
+        
         <% if current_user.jammer %>
-        <p class="user-type">Jammer</p>
+            <p class="user-type">Jammer</p>
         <% end %>
+        
         <% if current_user.freshmeat %>
-        <p class="user-type">Freshmeat</p>
+            <p class="user-type">Freshmeat</p>
         <% end %>
+        
         <% if current_user.ref %>
-        <p class="user-type">Ref</p>
+            <p class="user-type">Ref</p>
         <% end %>
+        
         <% if current_user.nso %>
-        <p class="user-type">NSO</p>
+            <p class="user-type">NSO</p>
         <% end %>
         <span><%= link_to "View my profile", current_user %></span>
         <span>(<%= pluralize(current_user.skills.count, "skill") %>)</span>

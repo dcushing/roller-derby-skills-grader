@@ -14,7 +14,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
         assert_template 'users/show'
         assert_select 'title', full_title(@user.display_name)
         assert_select 'h1', text: @user.display_name
-        assert_select 'h1', text: @user.alternate_name
+        assert_select 'h2', text: @user.alternate_name
     end
     
     test "profile display skills" do

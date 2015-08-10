@@ -31,6 +31,6 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
         log_in_as @user
         get root_path
         assert_select 'h1', text: @user.display_name
-        assert_select 'h1', text: @user.alternate_name
+        assert_select 'h2', text: @user.alternate_name
     end
 end
