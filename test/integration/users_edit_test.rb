@@ -23,7 +23,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
         log_in_as(@user)
         assert_redirected_to edit_user_path(@user)
         display_name = "Foo Bar"
-        derby_name = "Bar Foo" 
+        alternate_name = "Bar Foo" 
         email = "foo@bar.com"
         patch user_path(@user), user: { display_name: display_name,
             alternate_name: alternate_name,
