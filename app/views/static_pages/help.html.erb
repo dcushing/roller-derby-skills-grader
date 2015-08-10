@@ -1,7 +1,41 @@
 <% provide(:title, "Help") %>
-<h1>RDSG Help</h1>
-<div class="center">
-    <p>The plan for this app, once it's finished, will be to include functionality for users to sign up, fill out a basic profile, and add/remove skills and grade themselves on their skill level.</p>
-    <p>Eventually, I'd like to add i18n, as I have a background in linguistics and foreign languages and want to incorporate that in any way that I can.</p>   
-    <p>Dany Stormborn: bringing a roller derby obession to the non-English-speaking world since 2015.</p>    
+<div class="center readable-width">
+    <h1>FAQ</h1>
+    
+    
+    <h2 class="faq">What is this all about?</h2>
+    <p>The basic premise of this app is for users to track their skill level of various roller derby skills.</p>
+    
+    <h2 class="faq">What's roller derby?</h2>
+    <p>Only the best sport ever!<br/>
+    It's a sport played on roller skates on a flat oval-shaped track. There are two teams on the track, and each time has five players: four blockers and one jammer. The jammer is the one who scores the points. It's the blockers' job to stop the opposing jammer and push their jammer through the pack of the other team's blockers. I've got some links on the <%= link_to 'about page', about_path %> that can explain in further detail.</p>
+    
+    <h2 class="faq">Wait, I think I watched that on TV when I was younger...Isn't it dangerous?</h2>
+    <p>It's a totally different sport now than it used to be. And yeah, it can be (it's a full-contact/collision sport), but we wear protective gear and a lot of the rules of the game are there for safety reasons.</p>
+    
+    <h2 class="faq">I want in!</h2>
+    <p><%= link_to 'Sign up', signup_path %> and create a profile. Once you're in, you can add skills, set you level on a scale of 1-5, and add comments about how you're doing, what you still need to work on, what you've got down, etc.</p>
+    <p>Oh, did you mean you want in on roller derby? Look for your local league and ask them how to get involved.</p>
+    
+    <h2 class="faq">What if I'm not a skater? Can refs and NSOs join?</h2>
+    <p>You can select your user type(s) when you sign up, and you can change your user type(s) at any point by editing your profile. The types to choose from are:</p>
+    <p>Blocker<br/>
+    Jammer<br/>
+    Freshmeat<br/>
+    Ref<br/>
+    NSO</p>
+    <p>You can choose more than one type, so if you're a blocker who sometimes jams and has been known to NSO, you can select all three of those.</p>
+    
+    <h2 class="faq">Who can see my sklls?</h2>
+    <p>Currently, only you can see your skills. This may change in the future.</p>
+    
+    <h2 class="faq">Is this an English-only app?</h2>
+    <p>I'm in the process of translating it into Italian. (Se Lei parla italiano, per favore, <%= link_to 'dicami', contact_path %> se ho fatto un errore. Non sono madre lingua e ha fatto qualche anni che lo studio.)</p>
+    
+    <h2 class="faq">Hey, I want to make a suggestion/you app rocks and I want to tell you why/your app sucks and I want to tell you why</h2>
+    <p>Please <%= link_to 'give me any and all feedback you have!', contact_path %> This is my first web app so I want to know what you all think of it.</p>
+    
+    <h2 class="faq">I'm still confused about something</h2>
+    <p><%= link_to 'Send me an email', contact_path %> and I'll clarify.</p>
+        
 </div>
