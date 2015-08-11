@@ -16,8 +16,16 @@ Rails.application.configure do
     # ActionMailer setup
     config.action_mailer.raise_delivery_errors = true
     config.action_mailer.delivery_method = :test
-    host = 'monday-enigma.codio.io'
+    host = 'monday-enigma.codio.io' # using Codio
     config.action_mailer.default_url_options = { host: host }
+    config.action_mailer.smtp_settings = {
+      :address => "smtp.mandrillapp.com",
+      :port => 587,
+      :enable_starttls_auto: true,
+      :user_name => ENV["mandril_username"],
+      :password => ENV["dev_mandril_key"],
+      :authentication => "login"
+    }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
