@@ -11,11 +11,7 @@ default: &default
   timeout: 5000
 
 development:
-  adapter: postgresql
-  encoding: unicode
-  database: rdsgdev
-  pool: 5
-  timeout: 5000
+  <<: *default
   username: dstorm
   password: i$IpmCi7
   host: localhost
