@@ -69,7 +69,7 @@ Rails.application.configure do
      address: ENV['MAILER_ADDRESS'],
      port: 587,
      username: ENV['MAILER_USERNAME'],
-     password: ENV['MAILER_KEY'],
+     password: ENV['MANDRIL_DEV_KEY'],
      authentication: :plain,
      enable_starttls_auto: true,
      domain: 'heroku.com'

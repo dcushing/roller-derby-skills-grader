@@ -12,9 +12,9 @@ default: &default
 
 development:
   <<: *default
-  username: dstorm
-  password: i$IpmCi7
-  host: localhost
+  #username: dstorm
+  #password: i$IpmCi7
+  #host: localhost
   
 
 # Warning: The database defined as "test" will be erased and
@@ -22,9 +22,9 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: rdsgtest
-  username: admin_test
-  host: localhost
+  #database: rdsgtest
+  #username: admin_test
+  #host: localhost
 
 production:
   <<: *default
