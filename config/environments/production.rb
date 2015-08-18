@@ -66,10 +66,10 @@ Rails.application.configure do
    config.action_mailer.default_url_options = { host: 'cryptic-plateau-4200.heroku.com' }
    config.action_mailer.delivery_method = :smtp
    config.action_mailer.smtp_settings = {
-     address: ENV['MAILER_ADDRESS'],
-     port: 587,
-     username: ENV['MAILER_USERNAME'],
-     password: ENV['MANDRIL_DEV_KEY'],
+     address: 'smtp.sendgrid.net',
+     port: '587',
+     username: ENV['SENDGRID_USERNAME'],
+     password: ENV['SENDGRID_PASSWORD'],
      authentication: :plain,
      enable_starttls_auto: true,
      domain: 'heroku.com'

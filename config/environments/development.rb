@@ -15,16 +15,17 @@ Rails.application.configure do
 
     # ActionMailer setup
     config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.perform_deliveries = true
     config.action_mailer.delivery_method = :smtp
     #host = 'localhost' # codio: 'monday-enigma.codio.io'
     config.action_mailer.default_url_options = { host: 'localhost:3000' }
     config.action_mailer.smtp_settings = {
-      address: "smtp.mandrillapp.com",
-      port: 587,
-      domain: "rdsg.com",
+      address: ENV['ADDRESS'],
+      port: '587',
+      #domain: "rdsg.com",
       enable_starttls_auto: true,
-      user_name: ENV["mandril_username"],
-      password: ENV["dev_mandril_key"],
+      user_name: ENV['MAILER_USERNAME'],
+      password: ENV['MAILER_DEV_KEY'],
       authentication: "plain"
     }
 
