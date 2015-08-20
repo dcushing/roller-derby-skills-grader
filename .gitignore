@@ -22,3 +22,9 @@
 # Ignore application configuration
 /config/application.yml
 .env
+
+# Ignore my notes file
+/notes.txt
+
+# Ignore my seeds for production
+/db/seeds.rb
