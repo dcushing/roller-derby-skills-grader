@@ -60,6 +60,9 @@ textarea {
     margin-left:17%;
     max-width: 65%;
 }
+.name-display {
+  font-size:2.5em;
+}
 
 /* typography */
 
@@ -213,6 +216,9 @@ input {
         padding:10px 0;
         border-bottom: 1px solid $gray-med-light;
     }
+}
+.user-info {
+  
 }
 
 /* misc */ 

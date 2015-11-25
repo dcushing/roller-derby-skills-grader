@@ -1,7 +1,7 @@
 <% provide(:title, @user.display_name) %>
 <div class="row">
     <%= render partial: 'shared/user_info' if current_user %>
-    <div class="col-md-9">
+    <div class="col-md-8">
         <% if @user.skills.any? %>
         <h3>Skills (<%= @user.skills.count %>)</h3>
         <ul class="skills">
