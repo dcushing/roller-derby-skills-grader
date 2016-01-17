@@ -23,8 +23,8 @@ $btn-primary-border:$btn-default-border;
 /* misc */
 $jumbotron-color:$red-med;
 $jumbotron-bg:$gray-med-light;
-$link-color:$red-dark;
-$link-hover-color:$gray-dark;
+$link-color:#276419;
+$link-hover-color:#f1d6ba;
 $link-hover-decoration:none;
 
 .jumbotron-color {
@@ -118,7 +118,7 @@ p {
 }
 
 a {
-    color:$red-light;
+    color:$link-color;
     font-family:"Open Sans", sans-serif;
 }
 
