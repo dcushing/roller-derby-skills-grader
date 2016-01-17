@@ -1,19 +1,21 @@
-@import url(https://fonts.googleapis.com/css?family=Rock+Salt);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Sigmar+One);
 
 /* colors */
-$red-light:#df0000;
-$red-med:#c00000;
-$red-dark:#7f0000;
-$gray-light:#eaeaea;
-$gray-med-light:#bdbdbd;
-$gray-med-dark:#595959;
-$gray-dark:#141414;
+$red-light:#323232;
+$red-med:#ebebeb;
+$red-dark:#d9d9d9;
+$gray-light:#f1b6da;
+$gray-med-light:#7fbc41;
+$gray-med-dark:#8e0152;
+$gray-dark:#101010;
+
+/* almost black: 101010, lightest green: ef65d0, medium pink: , dark pink: de77ae, dark green: 276419   */
 
 /* button */
 $btn-default-color: $gray-light;
-$btn-default-bg:#db0000;
-$btn-default-border:#c00000;
+$btn-default-bg:$gray-med-dark;
+$btn-default-border:#4d9221;
 $btn-primary-color:$btn-default-color;
 $btn-primary-bg:$btn-default-bg;
 $btn-primary-border:$btn-default-border;
@@ -22,8 +24,12 @@ $btn-primary-border:$btn-default-border;
 $jumbotron-color:$red-med;
 $jumbotron-bg:$gray-med-light;
 $link-color:$red-dark;
-$link-hover-color:$gray-med-dark;
+$link-hover-color:$gray-dark;
 $link-hover-decoration:none;
+
+.jumbotron-color {
+  background-color:$jumbotron-bg;
+}
     
 @import 'bootstrap';
 
@@ -75,7 +81,7 @@ h1 {
     letter-spacing:-2px;
     margin-bottom:30px;
     text-align:center;
-    font-family: 'Rock Salt', cursive;
+    font-family: 'Sigmar One', cursive;
     color:$red-med;
 }
 
@@ -84,7 +90,7 @@ h2.faq {
     letter-spacing:-1px;
     text-align:center;
     margin-bottom:10px;
-    font-family: 'Rock Salt', cursive;
+    font-family: 'Sigmar One', cursive;
     color: $red-dark;
 }
 
@@ -131,11 +137,12 @@ header {
     font-size:1.7em;
     color:$gray-med-light;
     text-transform:uppercase;
+    font-family:"Sigmar One", cursive;
     letter-spacing:-1px;
     padding-top:9px;
     font-weight:bold;
     &:hover {
-        color:$gray-med-dark;
+        color:$gray-light;
         text-decoration:none;
     }
 }
@@ -224,5 +231,5 @@ input {
 /* misc */ 
 
 .my-btn {
-    font-family: 'Rock Salt', cursive;
+    font-family: 'Sigmar One', cursive;
 }
