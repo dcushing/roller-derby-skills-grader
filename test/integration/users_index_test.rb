@@ -31,7 +31,7 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     end
     
     test "only show activated users" do
-        log_in_as(@non_admin)
+        log_in_as(@admin)
         get users_path
         assert_template 'users/index'
         assert_select 'a[href=?]', user_path(@inactive), count: 0
