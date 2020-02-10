@@ -1,8 +1,7 @@
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
+require 'minitest/autorun'
 require 'rails/test_help'
-require 'minitest/reporters'
-Minitest::Reporters.use!
 
 class ActiveSupport::TestCase
     fixtures :all
@@ -17,9 +16,9 @@ class ActiveSupport::TestCase
         password = options[:password] || 'password'
         remember_me = options[:remember_me] || '1'
         if integration_test?
-            post login_path, session: { email: user.email,
+            post login_path, params: { session: { email: user.email,
                 password: password, 
-                remember_me: remember_me }
+                remember_me: remember_me } }
         else
             session[:user_id] = user.id
         end

@@ -8,14 +8,14 @@ class SkillsControllerTest < ActionController::TestCase
     
     test "should redirect create when not logged in" do
         assert_no_difference 'Skill.count' do
-            post :create, micropost: { name: "plow stops", level: 2 }
+            post :create, params: { micropost: { name: "plow stops", level: 2 } }
         end
         assert_redirected_to login_url
     end
     
     test "should redirect destroy when not logged in" do
         assert_no_difference 'Skill.count' do
-            delete :destroy, id: @skill
+            delete :destroy, params: { id: @skill }
         end
         assert_redirected_to login_url
     end
@@ -24,7 +24,7 @@ class SkillsControllerTest < ActionController::TestCase
         log_in_as(users(:dany))
         skill = skills(:juking)
         assert_no_difference 'Skill.count' do
-            delete :destroy, id: skill
+            delete :destroy, params: { id: skill }
         end
         assert_redirected_to root_url
     end

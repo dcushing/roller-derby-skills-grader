@@ -31,7 +31,6 @@ unactivated:
  email: inactive@rdsg.com
  password_digest: <%= User.digest('password') %>
  activated: false
- activated_at: nil
 
 unskilled:
  display_name: No Skills User

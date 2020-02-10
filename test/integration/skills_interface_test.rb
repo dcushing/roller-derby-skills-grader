@@ -9,7 +9,7 @@ class SkillsInterfaceTest < ActionDispatch::IntegrationTest
         log_in_as(@user)
         get new_skill_path
         assert_no_difference 'Skill.count' do
-            post skills_path, skill: { name: "", level: 6, comment: "" }
+            post skills_path, params: { skill: { name: "", level: 6, comment: "" } }
         end
         assert_select 'div#error_explanation'
     end
@@ -21,7 +21,7 @@ class SkillsInterfaceTest < ActionDispatch::IntegrationTest
         level = 4
         comments = "Almost there with my hockey stops"
         assert_difference 'Skill.count', 1 do
-            post skills_path, skill: { name: name, level: level, comments: comments }
+            post skills_path, params: { skill: { name: name, level: level, comments: comments } }
         end
         assert_redirected_to user_path(@user)
         follow_redirect!
